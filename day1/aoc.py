@@ -28,10 +28,8 @@ if __name__ == "__main__":
     with open('input.txt', 'r') as input_file:
         for line in input_file:
             num_list.append(int(line.strip()))
-    # program = NumSum(num_list)
-    # items = program.two_sum(2020)
-    # print(items[0] * items[1])
-    # items = program.three_sum(2020)
-    # print(items[0] * items[1] * items[2])
-
-    print([(x, y, z) for x, y, z in [[x for x in num_list], [y for y in num_list], [z for z in num_list]] if x + y + z == 2020])
+    program = NumSum(num_list)
+    items = program.two_sum(2020)
+    print(items[0] * items[1])
+    items = program.three_sum(2020)
+    print(items[0] * items[1] * items[2])
