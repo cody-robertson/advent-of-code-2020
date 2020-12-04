@@ -16,10 +16,10 @@ class NumSum:
                 for k in range(j + 1, len(self.num_array)):
                     self.three_sums[self.num_array[i] + self.num_array[j] + self.num_array[k]] = (self.num_array[i], self.num_array[j], self.num_array[k])
 
-    def two_sum(self, num):
+    def two_sum(self, num: int):
         return self.two_sums.get(num)
 
-    def three_sum(self, num):
+    def three_sum(self, num: int):
         return self.three_sums.get(num)
 
 
