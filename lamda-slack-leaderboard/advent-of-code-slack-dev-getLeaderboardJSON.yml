@@ -1,0 +1,28 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: An AWS Serverless Specification template describing your function.
+Resources:
+  adventofcodeslackdevgetLeaderboardJSON:
+    Type: 'AWS::Serverless::Function'
+    Properties:
+      Handler: handler.getLeaderboardSlack
+      Runtime: nodejs12.x
+      CodeUri: .
+      Description: ''
+      MemorySize: 1024
+      Timeout: 6
+      Role: arn:aws:iam::017563138395:role/advent-of-code-slack-dev-us-east-1-lambdaRole
+      Events:
+        Api1:
+          Type: Api
+          Properties:
+            Path: /leaderboard
+            Method: GET
+      Environment:
+        Variables:
+          AOC_COOKIE: PutCookieHere
+          AOC_LEADERBOARD: PutLeaderboardIdHere
+          AOC_URL: 'PutLeaderboardApiUrlHere'
+          LEADERBOARD_TABLE: PutTableNameInDynamoDb
+      Tags:
+        STAGE: dev
